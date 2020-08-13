@@ -1,133 +1,75 @@
-Info:
-  Title: Postman API
-  Description: A simple example ASP.NET Core Web API for testing Postman
-  Version: v1
-  Extensions: {}
-Servers: []
-Paths:
-  /WeatherForecast:
-    Operations:
-      Get:
-        Tags:
-        - Name: WeatherForecast
-          Extensions: {}
-        Parameters: []
-        Responses:
-          200:
-            Description: Success
-            Headers: {}
-            Content:
-              text/plain:
-                Schema:
-                  Type: array
-                  AllOf: []
-                  OneOf: []
-                  AnyOf: []
-                  Required: []
-                  Items:
-                    AllOf: []
-                    OneOf: []
-                    AnyOf: []
-                    Required: []
-                    Properties: {}
-                    AdditionalPropertiesAllowed: true
-                    Enum: []
-                    Extensions: {}
-                    Reference:
-                      Type: Schema
-                      Id: WeatherForecast
-                      IsLocal: true
-                      ReferenceV3: '#/components/schemas/WeatherForecast'
-                      ReferenceV2: '#/definitions/WeatherForecast'
-                  Properties: {}
-                  AdditionalPropertiesAllowed: true
-                  Enum: []
-                  Extensions: {}
-                Examples: {}
-                Encoding: {}
-                Extensions: {}
-              application/json:
-                Schema:
-                  Type: array
-                  AllOf: []
-                  OneOf: []
-                  AnyOf: []
-                  Required: []
-                  Items:
-                    AllOf: []
-                    OneOf: []
-                    AnyOf: []
-                    Required: []
-                    Properties: {}
-                    AdditionalPropertiesAllowed: true
-                    Enum: []
-                    Extensions: {}
-                    Reference:
-                      Type: Schema
-                      Id: WeatherForecast
-                      IsLocal: true
-                      ReferenceV3: '#/components/schemas/WeatherForecast'
-                      ReferenceV2: '#/definitions/WeatherForecast'
-                  Properties: {}
-                  AdditionalPropertiesAllowed: true
-                  Enum: []
-                  Extensions: {}
-                Examples: {}
-                Encoding: {}
-                Extensions: {}
-              text/json:
-                Schema:
-                  Type: array
-                  AllOf: []
-                  OneOf: []
-                  AnyOf: []
-                  Required: []
-                  Items:
-                    AllOf: []
-                    OneOf: []
-                    AnyOf: []
-                    Required: []
-                    Properties: {}
-                    AdditionalPropertiesAllowed: true
-                    Enum: []
-                    Extensions: {}
-                    Reference:
-                      Type: Schema
-                      Id: WeatherForecast
-                      IsLocal: true
-                      ReferenceV3: '#/components/schemas/WeatherForecast'
-                      ReferenceV2: '#/definitions/WeatherForecast'
-                  Properties: {}
-                  AdditionalPropertiesAllowed: true
-                  Enum: []
-                  Extensions: {}
-                Examples: {}
-                Encoding: {}
-                Extensions: {}
-            Links: {}
-            Extensions: {}
-        Callbacks: {}
-        Security: []
-        Servers: []
-        Extensions: {}
-    Servers: []
-    Parameters: []
-    Extensions: {}
-Components:
-  Schemas:
-    WeatherForecast:
-      Type: object
-      AllOf: []
-      OneOf: []
-      AnyOf: []
-      Required: []
-      Properties:
-        date:
-          Type: string
-          Format: date-time
-          AllOf: []
-          OneOf: []
-          AnyOf: []
-          Required: []
-          Properties: {}
- 
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Postman API",
+    "description": "A simple example ASP.NET Core Web API for testing Postman",
+    "version": "v1"
+  },
+  "paths": {
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
